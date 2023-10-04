@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1 - RodrigoAnjos2004
--- Tempo de geração: 03/10/2023 às 19:19
+-- RodrigoAnjos2004
+-- Host: 127.0.0.1 
+-- Tempo de geração: 04-Out-2023 às 22:33
 -- Versão do servidor: 10.4.28-MariaDB
--- Versão do PHP: 8.2.4
+-- versão do PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `dbvendaa`
+-- Banco de dados: `dbvenda`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_cliente`
+-- Estrutura da tabela `tbl_cliente`
 --
 
 CREATE TABLE `tbl_cliente` (
@@ -41,16 +41,16 @@ CREATE TABLE `tbl_cliente` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tbl_cliente`
+-- Extraindo dados da tabela `tbl_cliente`
 --
 
 INSERT INTO `tbl_cliente` (`pk_id_Cliente`, `cli_nome`, `cli_zona`, `cli_endereco`, `cli_bairro`, `cli_cidade`, `cli_uf`, `cli_cep`, `cli_tel_fixo`, `cli_tel_cel`) VALUES
-(1, 'Rodrigo Silva dos Anjos', 'Urbana', 'Senac ', 'Santo amaro', 'São paulo', 'SP', '58337-000', '(11)95807-4856', '(11)94807-3675');
+(1, 'Rodrigo Silva dos Anjos', 'Zona Sul', 'São Paulo ', 'Senac', 'São paulo', 'SP', '58337-000', '(11)3344-5566', '(11)98115-496 ');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_forma_pagamento`
+-- Estrutura da tabela `tbl_forma_pagamento`
 --
 
 CREATE TABLE `tbl_forma_pagamento` (
@@ -64,7 +64,7 @@ CREATE TABLE `tbl_forma_pagamento` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_produto`
+-- Estrutura da tabela `tbl_produto`
 --
 
 CREATE TABLE `tbl_produto` (
@@ -75,16 +75,16 @@ CREATE TABLE `tbl_produto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tbl_produto`
+-- Extraindo dados da tabela `tbl_produto`
 --
 
 INSERT INTO `tbl_produto` (`pk_id_produto`, `pro_nome`, `pro_valor`, `pro_estoque`) VALUES
-(1, 'Tenis nike shox', 3.5, 48);
+(1, 'CANETA PRETA', 3.5, 47);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_usuario`
+-- Estrutura da tabela `tbl_usuario`
 --
 
 CREATE TABLE `tbl_usuario` (
@@ -95,7 +95,7 @@ CREATE TABLE `tbl_usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tbl_usuario`
+-- Extraindo dados da tabela `tbl_usuario`
 --
 
 INSERT INTO `tbl_usuario` (`pk_id_usuario`, `usu_nome`, `usu_login`, `usu_senha`) VALUES
@@ -104,7 +104,7 @@ INSERT INTO `tbl_usuario` (`pk_id_usuario`, `usu_nome`, `usu_login`, `usu_senha`
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_vendas`
+-- Estrutura da tabela `tbl_vendas`
 --
 
 CREATE TABLE `tbl_vendas` (
@@ -117,18 +117,16 @@ CREATE TABLE `tbl_vendas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tbl_vendas`
+-- Extraindo dados da tabela `tbl_vendas`
 --
 
 INSERT INTO `tbl_vendas` (`pk_id_vendas`, `fk_cliente`, `ven_data_venda`, `ven_valor_liquido`, `ven_valor_bruto`, `ven_desconto`) VALUES
-(7, 1, '2023-02-10', 813.45, 813.45, 0),
-(9, 1, '2023-02-10', 8.1, 8.1, 0),
-(10, 1, '2023-02-10', 8.1, 8.1, 0);
+(1, 1, '2021-02-07', 8.1, 8.1, 0);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_vendas_produtos`
+-- Estrutura da tabela `tbl_vendas_produtos`
 --
 
 CREATE TABLE `tbl_vendas_produtos` (
@@ -140,58 +138,49 @@ CREATE TABLE `tbl_vendas_produtos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tbl_vendas_produtos`
+-- Extraindo dados da tabela `tbl_vendas_produtos`
 --
 
 INSERT INTO `tbl_vendas_produtos` (`pk_id_venda_produto`, `fk_produto`, `fk_vendas`, `ven_pro_valor`, `ven_pro_quantidade`) VALUES
-(15, 1, 7, 3.5, 5),
-(16, 2, 7, 2.3, 5),
-(17, 4, 7, 3.4, 5),
-(18, 5, 7, 2.5, 5),
-(21, 1, 9, 3.5, 1),
-(22, 2, 9, 2.3, 2),
-(23, 1, 9, 3.5, 1),
-(24, 2, 9, 2.3, 2),
-(25, 1, 10, 3.5, 1),
-(26, 2, 10, 2.3, 2);
+(1, 2, 10, 2.3, 2);
 
 --
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices de tabela `tbl_cliente`
+-- Índices para tabela `tbl_cliente`
 --
 ALTER TABLE `tbl_cliente`
   ADD PRIMARY KEY (`pk_id_Cliente`);
 
 --
--- Índices de tabela `tbl_forma_pagamento`
+-- Índices para tabela `tbl_forma_pagamento`
 --
 ALTER TABLE `tbl_forma_pagamento`
   ADD PRIMARY KEY (`pk_id_for_pag`);
 
 --
--- Índices de tabela `tbl_produto`
+-- Índices para tabela `tbl_produto`
 --
 ALTER TABLE `tbl_produto`
   ADD PRIMARY KEY (`pk_id_produto`);
 
 --
--- Índices de tabela `tbl_usuario`
+-- Índices para tabela `tbl_usuario`
 --
 ALTER TABLE `tbl_usuario`
   ADD PRIMARY KEY (`pk_id_usuario`);
 
 --
--- Índices de tabela `tbl_vendas`
+-- Índices para tabela `tbl_vendas`
 --
 ALTER TABLE `tbl_vendas`
   ADD PRIMARY KEY (`pk_id_vendas`),
   ADD KEY `fkCliente` (`fk_cliente`);
 
 --
--- Índices de tabela `tbl_vendas_produtos`
+-- Índices para tabela `tbl_vendas_produtos`
 --
 ALTER TABLE `tbl_vendas_produtos`
   ADD PRIMARY KEY (`pk_id_venda_produto`),
@@ -199,14 +188,14 @@ ALTER TABLE `tbl_vendas_produtos`
   ADD KEY `fkVendas` (`fk_vendas`);
 
 --
--- AUTO_INCREMENT para tabelas despejadas
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
 -- AUTO_INCREMENT de tabela `tbl_cliente`
 --
 ALTER TABLE `tbl_cliente`
-  MODIFY `pk_id_Cliente` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `pk_id_Cliente` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `tbl_forma_pagamento`
@@ -218,7 +207,7 @@ ALTER TABLE `tbl_forma_pagamento`
 -- AUTO_INCREMENT de tabela `tbl_produto`
 --
 ALTER TABLE `tbl_produto`
-  MODIFY `pk_id_produto` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `pk_id_produto` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `tbl_usuario`
@@ -239,17 +228,17 @@ ALTER TABLE `tbl_vendas_produtos`
   MODIFY `pk_id_venda_produto` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
--- Restrições para tabelas despejadas
+-- Restrições para despejos de tabelas
 --
 
 --
--- Restrições para tabelas `tbl_vendas`
+-- Limitadores para a tabela `tbl_vendas`
 --
 ALTER TABLE `tbl_vendas`
   ADD CONSTRAINT `tbl_vendas_ibfk_1` FOREIGN KEY (`fk_cliente`) REFERENCES `tbl_cliente` (`pk_id_Cliente`);
 
 --
--- Restrições para tabelas `tbl_vendas_produtos`
+-- Limitadores para a tabela `tbl_vendas_produtos`
 --
 ALTER TABLE `tbl_vendas_produtos`
   ADD CONSTRAINT `tbl_vendas_produtos_ibfk_1` FOREIGN KEY (`fk_produto`) REFERENCES `tbl_produto` (`pk_id_produto`),
